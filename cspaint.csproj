@@ -1,0 +1,87 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{DFFBBC94-51B8-487E-BEC1-D69AC660E008}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>cspaint</RootNamespace>
+    <AssemblyName>cspaint</AssemblyName>
+    <TargetFrameworkVersion>Mono v2.0</TargetFrameworkVersion>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <NoStdLib>False</NoStdLib>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <Optimize>False</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <DebugSymbols>false</DebugSymbols>
+    <DebugType>None</DebugType>
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>False</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
+    <RegisterForComInterop>False</RegisterForComInterop>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <BaseAddress>4194304</BaseAddress>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <FileAlignment>4096</FileAlignment>
+  </PropertyGroup>
+  <Import Project="$(SharpDevelopBinPath)\SharpDevelop.Build.CSharp.targets" />
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Tao.FreeGlut">
+      <HintPath>..\..\..\tao-2.0.0\bin\assemblies\Tao.FreeGlut.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Tao.OpenGl">
+      <HintPath>..\..\..\tao-2.0.0\bin\assemblies\Tao.OpenGl.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="cspaint\gluTessNew.cs">
+      <Link>gluTessNew.cs</Link>
+    </Compile>
+    <Compile Include="cspaint\ObjListDialog.cs">
+      <Link>ObjListDialog.cs</Link>
+    </Compile>
+    <Compile Include="cspaint\ObjListDialog.Designer.cs">
+      <Link>ObjListDialog.Designer.cs</Link>
+    </Compile>
+    <Compile Include="cspaint\PaintTools.cs">
+      <Link>PaintTools.cs</Link>
+    </Compile>
+    <Compile Include="cspaint\PaintWindow.cs">
+      <Link>PaintWindow.cs</Link>
+    </Compile>
+    <Compile Include="cspaint\Program.cs">
+      <Link>Program.cs</Link>
+    </Compile>
+    <Compile Include="cspaint\ToolsDialog.cs">
+      <Link>ToolsDialog.cs</Link>
+    </Compile>
+    <Compile Include="cspaint\ToolsDialog.Designer.cs">
+      <Link>ToolsDialog.Designer.cs</Link>
+    </Compile>
+    <EmbeddedResource Include="cspaint\ObjListDialog.resx">
+      <Link>ObjListDialog.resx</Link>
+      <DependentUpon>ObjListDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cspaint\ToolsDialog.resx">
+      <Link>ToolsDialog.resx</Link>
+      <DependentUpon>ToolsDialog.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>
